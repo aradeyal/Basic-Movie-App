@@ -31,8 +31,8 @@ Includes functionality to view popular movies, search for specific titles, and m
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aradeyal/MovieSearcher.git
-cd MovieSearcher
+git clone https://github.com/aradeyal/ Movie App.git
+cd  Movie App
 ```
 
 ### 2. Install Dependencies
@@ -63,7 +63,7 @@ Visit: [http://localhost:5173](http://localhost:5173)
 ## 📁 Project Structure
 
 ```
-MovieSearcher/
+ Movie App/
 ├── public/
 ├── src/
 │   ├── assets/
