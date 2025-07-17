@@ -1,4 +1,4 @@
-# 🎬 Movie Searcher
+# 🎬 Basic Movie App
 
 A modern web app to search and discover movies using the [TMDB API](https://www.themoviedb.org/), built with **React**, **Vite**, and **CSS Modules**.  
 Includes functionality to view popular movies, search for specific titles, and manage a list of favorite movies.
