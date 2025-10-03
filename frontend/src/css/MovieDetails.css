@@ -1,0 +1,82 @@
+.movie-details {
+  --muted: #b9b9c9;
+  --card: #141420;
+  --chip: #1e1e2b;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  color: #f4f4f7;
+}
+
+.page-state { padding: 24px; }
+.page-state.error { color: #ff6b6b; }
+
+.movie-hero {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+.poster { width: 180px; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.45); }
+.poster img { width: 100%; display: block; }
+.poster--placeholder { background: #2a2a3a; height: 270px; }
+
+.title { margin: 0 0 6px; font-size: 2rem; line-height: 1.2; }
+.year { font-weight: 400; opacity: .85; }
+
+.meta { display: flex; flex-wrap: wrap; gap: 10px 16px; margin: 0 0 12px; color: var(--muted); font-size: .95rem; }
+.badge { display: inline-flex; align-items: center; gap: 6px; background: var(--card); border: 1px solid rgba(255,255,255,.06); padding: 6px 10px; border-radius: 999px; }
+
+.genres { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+.genre-chip { background: var(--chip); border: 1px solid rgba(255,255,255,.06); padding: 6px 10px; border-radius: 999px; font-size: .85rem; color: #d6d6e3; }
+
+.overview { line-height: 1.6; color: #e8e8f2; }
+
+/* Cast */
+.cast-section { margin-top: 28px; }
+.cast-section h2 { margin: 0 0 14px; font-size: 1.35rem; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+
+/* כרטיס שחקן הוא לינק, מבטלים visited/underline ומוסיפים אפקטים */
+.cast-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 12px;
+  padding: 10px;
+  text-decoration: none;
+  color: #e9ecff;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.cast-card:link,
+.cast-card:visited {
+  color: #e9ecff;      /* אין סגול visited */
+  text-decoration: none;
+}
+.cast-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+.cast-head {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 8px;
+  background: #2a2a3a;
+}
+.cast-name { font-weight: 600; font-size: .95rem; }
+.cast-role { color: var(--muted); font-size: .85rem; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .movie-hero { grid-template-columns: 120px 1fr; gap: 14px; }
+  .poster { width: 120px; }
+}

@@ -1,3 +1,111 @@
+<<<<<<< HEAD
+/* --- צבעים כלליים למצב כהה --- */
+:root {
+  --text: #e9ecff;
+  --muted: #b8bbd9;
+  --card-bg: #141427;         /* רקע כרטיס */
+  --card-border: rgba(255,255,255,.08);
+  --card-border-hover: rgba(255,255,255,.18);
+  --focus: #7c9aff;           /* טבעת מיקוד נגישה */
+}
+
+/* הכרטיס הוא <Link> */
+.movie-card {
+  position: relative;               /* מאפשר שכבות */
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 12px;
+  color: var(--text);
+  text-decoration: none;            /* בלי קו תחתון */
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* מבטלים visited/underline */
+.movie-card:link,
+.movie-card:visited {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.movie-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+}
+
+.movie-card:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* תמונת הפוסטר */
+.movie-poster {
+  position: relative;               /* בסיס ל-overlay */
+}
+.movie-poster img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* overlay של כפתור המועדפים */
+.movie-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;                       /* מעל התמונה */
+  pointer-events: auto;
+}
+
+.favorite-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease, color .2s ease;
+}
+
+.favorite-btn:hover {
+  background: rgba(255,255,255,.18);
+  transform: scale(1.06);
+}
+
+.favorite-btn.active {
+  color: #ff4d6d;                   /* מצב שמור */
+}
+
+/* טקסט מתחת לתמונה */
+.movie-info {
+  margin-top: 10px;
+}
+.movie-info h3 {
+  margin: 0 0 2px;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: var(--text);
+  font-weight: 700;
+}
+.movie-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* הדגשה קלה ב-hover */
+.movie-card:hover .movie-info h3 {
+  color: #fff;
+}
+=======
 /* המכלים */
 .movie-poster{
   position: relative;
@@ -52,3 +160,4 @@
   width: 20px;
   height: 20px;
 }
+>>>>>>> origin/main
