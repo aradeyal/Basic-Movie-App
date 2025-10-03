@@ -1,8 +1,11 @@
-.main-content {
-  flex: 1;
-  padding: 2rem;
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+/* App.css – לנקות חוקים של תבנית Vite */
+#root {
+  max-width: none !important;
+  padding: 0 !important;
+  text-align: unset !important;
+  background: transparent !important;
 }
+
+/* להשאיר רק אם יש לך שימוש בהם; אחרת אפשר למחוק */
+.card { padding: 0; }
+.read-the-docs { color: #888; }
