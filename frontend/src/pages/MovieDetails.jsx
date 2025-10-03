@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "../services/api";
+import { useMovieContext } from "../contexts/MovieContext";
+
 import "../css/MovieDetails.css";
 
 export default function MovieDetails() {
@@ -8,10 +10,18 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext();
+  const favorite = isFavorite(movie?.id);
+
+function onFavoriteClick() {
+  if (favorite) removeFromFavorites(movie.id);
+  else addToFavorites(movie);
+}
+
+
 
   useEffect(() => {
     let cancelled = false;
-
     (async () => {
       try {
         setLoading(true);
@@ -24,13 +34,14 @@ export default function MovieDetails() {
         if (!cancelled) setLoading(false);
       }
     })();
-
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [id]);
 
   if (loading) return <div className="page-state">Loading...</div>;
-  if (error)   return <div className="page-state error">{error}</div>;
-  if (!movie)  return null;
+  if (error) return <div className="page-state error">{error}</div>;
+  if (!movie) return null;
 
   const IMG = "https://image.tmdb.org/t/p";
   const poster = movie?.poster_path ? `${IMG}/w342${movie.poster_path}` : null;
@@ -57,15 +68,9 @@ export default function MovieDetails() {
           </h1>
 
           <div className="meta">
-            <span className="badge" title="Rating">
-              ⭐ {movie.vote_average?.toFixed?.(1) ?? "N/A"}
-            </span>
-            <span className="badge" title="Runtime">
-              ⏱ {movie.runtime ?? "?"} min
-            </span>
-            <span className="badge" title="Release date">
-              📅 {movie.release_date ?? "—"}
-            </span>
+            <span className="badge">⭐ {movie.vote_average?.toFixed?.(1) ?? "N/A"}</span>
+            <span className="badge">⏱ {movie.runtime ?? "?"} min</span>
+            <span className="badge">📅 {movie.release_date ?? "—"}</span>
           </div>
 
           {!!movie.genres?.length && (
@@ -86,21 +91,21 @@ export default function MovieDetails() {
       <div className="cast-section">
         <h2>Cast</h2>
         <div className="cast-grid">
-          {cast.map((person) => {
-            const headshot = person.profile_path ? `${IMG}/w185${person.profile_path}` : null;
+          {cast.map((p) => {
+            const headshot = p.profile_path ? `${IMG}/w185${p.profile_path}` : null;
             return (
               <Link
-                to={`/person/${person.id}`}
-                key={person.cast_id ?? person.id}
+                to={`/person/${p.id}`}
+                key={p.cast_id ?? p.id}
                 className="cast-card"
               >
                 {headshot ? (
-                  <img className="cast-head" src={headshot} alt={person.name} loading="lazy" />
+                  <img className="cast-head" src={headshot} alt={p.name} loading="lazy" />
                 ) : (
                   <div className="cast-head" aria-hidden="true" />
                 )}
-                <div className="cast-name">{person.name}</div>
-                <div className="cast-role">{person.character}</div>
+                <div className="cast-name">{p.name}</div>
+                <div className="cast-role">{p.character}</div>
               </Link>
             );
           })}

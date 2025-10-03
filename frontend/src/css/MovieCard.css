@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* --- צבעים כלליים למצב כהה --- */
 :root {
   --text: #e9ecff;
@@ -105,59 +104,3 @@
 .movie-card:hover .movie-info h3 {
   color: #fff;
 }
-=======
-/* המכלים */
-.movie-poster{
-  position: relative;
-  border-radius: 12px;           /* אם כבר היה – סבבה */
-  overflow: hidden;              /* משאיר קצוות נקיים */
-}
-.movie-overlay{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: flex-end;
-  padding: 8px;                  /* << מונע חיתוך של הכפתור בקצה */
-  pointer-events: none;          /* שלא יחסום hover של התמונה */
-}
-.movie-overlay .favorite-btn{ pointer-events: auto; }
-
-/* הכפתור עצמו – נקי מקונפליקטים */
-.favorite-btn{
-  appearance: none;
-  -webkit-appearance: none;
-  background: rgba(0,0,0,.55);   /* רקע כהה שקוף */
-  border: 1px solid rgba(255,255,255,.2);
-  width: 36px; height: 36px;
-  border-radius: 50%;            /* עיגול מלא */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #e6e6e6;                /* currentColor של ה-SVG */
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-  margin: 0;
-  transition: background .2s, color .2s, transform .1s, border-color .2s;
-  box-shadow: 0 1px 6px rgba(0,0,0,.35);
-}
-.favorite-btn:hover{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.3);
-}
-.favorite-btn:active{ transform: translateY(1px); }
-
-/* מצב פעיל (ממולא) */
-.favorite-btn.active{
-  color: #ff6b9e;                /* צבע ה"אהבתי" */
-  background: rgba(255, 107, 158, .12);
-  border-color: rgba(255, 107, 158, .5);
-}
-
-/* ה-SVG עצמו */
-.favorite-btn svg{
-  display: block;
-  width: 20px;
-  height: 20px;
-}
->>>>>>> origin/main

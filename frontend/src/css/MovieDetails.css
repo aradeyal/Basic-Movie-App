@@ -41,7 +41,6 @@
 
 .cast-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
 
-/* כרטיס שחקן הוא לינק, מבטלים visited/underline ומוסיפים אפקטים */
 .cast-card {
   display: block;
   background: var(--card);
@@ -53,29 +52,17 @@
   transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
 .cast-card:link,
-.cast-card:visited {
-  color: #e9ecff;      /* אין סגול visited */
-  text-decoration: none;
-}
+.cast-card:visited { color: #e9ecff; text-decoration: none; }
 .cast-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255,255,255,.18);
   box-shadow: 0 10px 24px rgba(0,0,0,.35);
 }
 
-.cast-head {
-  width: 100%;
-  aspect-ratio: 2/3;
-  border-radius: 8px;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 8px;
-  background: #2a2a3a;
-}
+.cast-head { width: 100%; aspect-ratio: 2/3; border-radius: 8px; object-fit: cover; display: block; margin-bottom: 8px; background: #2a2a3a; }
 .cast-name { font-weight: 600; font-size: .95rem; }
 .cast-role { color: var(--muted); font-size: .85rem; }
 
-/* Responsive */
 @media (max-width: 640px) {
   .movie-hero { grid-template-columns: 120px 1fr; gap: 14px; }
   .poster { width: 120px; }
