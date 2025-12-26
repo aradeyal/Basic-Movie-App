@@ -1,4 +1,4 @@
-# 🎬 Basic Movie App
+# 🎬  Movie App
 
 A modern web application for searching and discovering movies using the **TMDB API**.
 Built with **React**, **Vite**, **React Router**, and **CSS Modules**.
@@ -38,8 +38,8 @@ The app allows users to browse popular movies, search by title, manage a favorit
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aradeyal/Basic-Movie-App.git
-cd Basic-Movie-App
+git clone https://github.com/aradeyal/Movie-App.git
+cd Movie-App
 ```
 
 ---
