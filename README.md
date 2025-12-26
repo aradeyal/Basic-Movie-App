@@ -1,7 +1,7 @@
 # 🎬 Basic Movie App
 
-A modern web app to search and discover movies using the [TMDB API](https://www.themoviedb.org/), built with **React**, **Vite**, and **CSS Modules**.  
-Includes functionality to view popular movies, search for specific titles, and manage a list of favorite movies.
+A modern web app to search and discover movies using the [TMDB API](https://www.themoviedb.org/), built with **React**, **Vite**, **React Router**, and **CSS Modules**.  
+Includes functionality to view popular movies, search for specific titles, manage a list of favorite movies, explore detailed movie information, and discover cast and crew details.
 
 ---
 
@@ -10,17 +10,22 @@ Includes functionality to view popular movies, search for specific titles, and m
 - 🔍 Search movies by title  
 - ⭐ Add and remove favorite movies  
 - 🎞 View popular movies from TMDB  
-- 📸 Display movie posters, overviews, and release dates  
+- 📸 Display movie posters, overviews, release dates, and ratings  
+- 🎬 **Detailed movie pages** with cast and crew information  
+- 👤 **Actor profiles** with complete filmography and biography  
+- 🔗 **Clickable cast members** linking to their profiles  
 - ⚡ Powered by Vite for fast development and builds  
 - 🎨 Custom styling with CSS Modules  
 - 🌐 Live data from TMDB API  
+- 🚀 Client-side routing with React Router  
 
 ---
 
 ## 🛠️ Technologies Used
 
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/) (v19.1.0)
+- [Vite](https://vitejs.dev/) (v7.0.4)
+- [React Router DOM](https://reactrouter.com/) (v7.6.3) - Client-side routing
 - [The Movie Database API (TMDB)](https://www.themoviedb.org/)
 - CSS Modules
 
@@ -62,34 +67,69 @@ Visit: [http://localhost:5173](http://localhost:5173)
 
 ## 📁 Project Structure
 
-```
- Movie App/
+frontend/
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── css/
-│   ├── pages/
-│   ├── App.jsx
-│   ├── main.jsx
-├── .env              <-- holds the API key (not committed to GitHub)
-├── .gitignore        <-- includes .env
+│   ├── assets/              <-- Images and static assets
+│   ├── components/          <-- Reusable React components
+│   │   ├── MovieCard.jsx    <-- Movie card component
+│   │   └── NavBar.jsx       <-- Navigation bar
+│   ├── contexts/            <-- React Context
+│   │   └── MovieContext.jsx <-- Global movie state (favorites)
+│   ├── css/                 <-- CSS Modules
+│   │   ├── App.css
+│   │   ├── Home.css
+│   │   ├── Favorites.css
+│   │   ├── MovieCard.css
+│   │   ├── MovieDetails.css
+│   │   ├── Navbar.css
+│   │   └── index.css
+│   ├── pages/               <-- Page components
+│   │   ├── Home.jsx         <-- Popular movies & search
+│   │   ├── Favorites.jsx    <-- Favorite movies list
+│   │   ├── MovieDetails.jsx <-- Movie details with cast
+│   │   └── PersonDetails.jsx <-- Actor/crew profile & filmography
+│   ├── services/            <-- API integration
+│   │   └── api.js          <-- TMDB API calls
+│   ├── App.jsx              <-- Main app component
+│   └── main.jsx             <-- React entry point
+├── .env                     <-- API key (not committed to GitHub)
+├── .gitignore               <-- Includes .env
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── README.md
 ```
 
+### Key Components
+
+- **MovieCard.jsx**: Displays individual movie cards with title, poster, and rating
+- **NavBar.jsx**: Navigation links to Home and Favorites pages
+- **MovieContext.jsx**: Global state management for favorite movies using React Context API
+- **MovieDetails.jsx**: Detailed view of a single movie with cast, crew, and description
+- **PersonDetails.jsx**: Actor/crew profile with biography and complete filmography
+- **api.js**: All TMDB API endpoints (popular, search, movie details, person details) README.md
+```
+
 ---
 
 ## 🌐 API Reference
 
-This project uses The Movie Database (TMDB) API to fetch real-time movie data.
+This project uses **The Movie Database (TMDB) API** to fetch real-time movie data.
 
-- Get an API key:
-  1. Visit: [TMDB API Settings](https://www.themoviedb.org/settings/api)
-  2. Sign up or log in
-  3. Request a developer API key (free)
+### Available Endpoints
+
+- **`getPopularMovies()`** - Fetch popular movies for the home feed
+- **`searchMovies(query)`** - Search movies by title
+- **`getMovieDetails(id)`** - Get detailed info about a movie including cast and crew
+- **`getPersonWithCredits(id)`** - Get actor/crew profile with complete filmography
+
+### Setup TMDB API Key
+
+1. Visit: [TMDB API Settings](https://www.themoviedb.org/settings/api)
+2. Sign up or log in to your account
+3. Request a developer API key (free tier available)
+4. Add the key to your `.env` file as `VITE_TMDB_API_KEY`
 
 ---
 
