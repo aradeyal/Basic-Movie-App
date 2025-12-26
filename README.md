@@ -1,33 +1,35 @@
 # 🎬 Basic Movie App
 
-A modern web app to search and discover movies using the [TMDB API](https://www.themoviedb.org/), built with **React**, **Vite**, **React Router**, and **CSS Modules**.  
-Includes functionality to view popular movies, search for specific titles, manage a list of favorite movies, explore detailed movie information, and discover cast and crew details.
+A modern web application for searching and discovering movies using the **TMDB API**.
+Built with **React**, **Vite**, **React Router**, and **CSS Modules**.
+
+The app allows users to browse popular movies, search by title, manage a favorites list, explore detailed movie pages, and view actor profiles with full filmography.
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Search movies by title  
-- ⭐ Add and remove favorite movies  
-- 🎞 View popular movies from TMDB  
-- 📸 Display movie posters, overviews, release dates, and ratings  
-- 🎬 **Detailed movie pages** with cast and crew information  
-- 👤 **Actor profiles** with complete filmography and biography  
-- 🔗 **Clickable cast members** linking to their profiles  
-- ⚡ Powered by Vite for fast development and builds  
-- 🎨 Custom styling with CSS Modules  
-- 🌐 Live data from TMDB API  
-- 🚀 Client-side routing with React Router  
+* 🔍 Search movies by title
+* ⭐ Add and remove favorite movies
+* 🎞 Browse popular movies from TMDB
+* 📸 View posters, overviews, release dates, and ratings
+* 🎬 Detailed movie pages with cast & crew
+* 👤 Actor profiles with biography and full filmography
+* 🔗 Clickable cast members linking to actor pages
+* ⚡ Fast development with Vite
+* 🎨 Styling with CSS Modules
+* 🌐 Live data from TMDB API
+* 🚀 Client-side routing with React Router
 
 ---
 
 ## 🛠️ Technologies Used
 
-- [React](https://react.dev/) (v19.1.0)
-- [Vite](https://vitejs.dev/) (v7.0.4)
-- [React Router DOM](https://reactrouter.com/) (v7.6.3) - Client-side routing
-- [The Movie Database API (TMDB)](https://www.themoviedb.org/)
-- CSS Modules
+* **React** (v19.1.0)
+* **Vite** (v7.0.4)
+* **React Router DOM** (v7.6.3)
+* **TMDB API**
+* **CSS Modules**
 
 ---
 
@@ -36,9 +38,11 @@ Includes functionality to view popular movies, search for specific titles, manag
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aradeyal/ Movie App.git
-cd  Movie App
+git clone https://github.com/aradeyal/Basic-Movie-App.git
+cd Basic-Movie-App
 ```
+
+---
 
 ### 2. Install Dependencies
 
@@ -46,37 +50,45 @@ cd  Movie App
 npm install
 ```
 
+---
+
 ### 3. Set Up Environment Variables
 
-Create a `.env` file in the root of the project (at the same level as `vite.config.js`) and add:
+Create a `.env` file in the project root (same level as `vite.config.js`):
 
-```
+```env
 VITE_TMDB_API_KEY=your_tmdb_api_key_here
 ```
 
-> **Note:** Do NOT commit your `.env` file. It is already listed in `.gitignore`.
+> ❗ The `.env` file must not be committed to GitHub. It is already included in `.gitignore`.
+
+---
 
 ### 4. Start the Development Server
 
 ```bash
 npm run dev
 ```
-Visit: [http://localhost:5173](http://localhost:5173)
+
+Open in your browser:
+
+👉 **[http://localhost:5173](http://localhost:5173)**
 
 ---
 
 ## 📁 Project Structure
 
+```
 frontend/
 ├── public/
 ├── src/
-│   ├── assets/              <-- Images and static assets
-│   ├── components/          <-- Reusable React components
-│   │   ├── MovieCard.jsx    <-- Movie card component
-│   │   └── NavBar.jsx       <-- Navigation bar
-│   ├── contexts/            <-- React Context
-│   │   └── MovieContext.jsx <-- Global movie state (favorites)
-│   ├── css/                 <-- CSS Modules
+│   ├── assets/               # Images and static assets
+│   ├── components/           # Reusable components
+│   │   ├── MovieCard.jsx
+│   │   └── NavBar.jsx
+│   ├── contexts/             # React Context
+│   │   └── MovieContext.jsx  # Favorites global state
+│   ├── css/                  # CSS Modules
 │   │   ├── App.css
 │   │   ├── Home.css
 │   │   ├── Favorites.css
@@ -84,75 +96,83 @@ frontend/
 │   │   ├── MovieDetails.css
 │   │   ├── Navbar.css
 │   │   └── index.css
-│   ├── pages/               <-- Page components
-│   │   ├── Home.jsx         <-- Popular movies & search
-│   │   ├── Favorites.jsx    <-- Favorite movies list
-│   │   ├── MovieDetails.jsx <-- Movie details with cast
-│   │   └── PersonDetails.jsx <-- Actor/crew profile & filmography
-│   ├── services/            <-- API integration
-│   │   └── api.js          <-- TMDB API calls
-│   ├── App.jsx              <-- Main app component
-│   └── main.jsx             <-- React entry point
-├── .env                     <-- API key (not committed to GitHub)
-├── .gitignore               <-- Includes .env
+│   ├── pages/                # Page components
+│   │   ├── Home.jsx
+│   │   ├── Favorites.jsx
+│   │   ├── MovieDetails.jsx
+│   │   └── PersonDetails.jsx
+│   ├── services/
+│   │   └── api.js             # TMDB API integration
+│   ├── App.jsx
+│   └── main.jsx
+├── .env                      # API key (ignored by Git)
+├── .gitignore
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── README.md
 ```
 
-### Key Components
+---
 
-- **MovieCard.jsx**: Displays individual movie cards with title, poster, and rating
-- **NavBar.jsx**: Navigation links to Home and Favorites pages
-- **MovieContext.jsx**: Global state management for favorite movies using React Context API
-- **MovieDetails.jsx**: Detailed view of a single movie with cast, crew, and description
-- **PersonDetails.jsx**: Actor/crew profile with biography and complete filmography
-- **api.js**: All TMDB API endpoints (popular, search, movie details, person details) README.md
-```
+## 🧩 Key Components
+
+* **MovieCard.jsx** – Displays movie poster, title, and rating
+* **NavBar.jsx** – Navigation between Home and Favorites
+* **MovieContext.jsx** – Global favorites management using React Context
+* **MovieDetails.jsx** – Full movie details including cast & crew
+* **PersonDetails.jsx** – Actor / crew profile with biography and filmography
+* **api.js** – Centralized TMDB API requests
 
 ---
 
 ## 🌐 API Reference
 
-This project uses **The Movie Database (TMDB) API** to fetch real-time movie data.
+This project uses **The Movie Database (TMDB) API** for real-time movie data.
 
-### Available Endpoints
+### Implemented API Functions
 
-- **`getPopularMovies()`** - Fetch popular movies for the home feed
-- **`searchMovies(query)`** - Search movies by title
-- **`getMovieDetails(id)`** - Get detailed info about a movie including cast and crew
-- **`getPersonWithCredits(id)`** - Get actor/crew profile with complete filmography
+* `getPopularMovies()` – Fetch popular movies
+* `searchMovies(query)` – Search movies by title
+* `getMovieDetails(id)` – Movie details + cast & crew
+* `getPersonWithCredits(id)` – Actor profile + filmography
 
-### Setup TMDB API Key
+---
 
-1. Visit: [TMDB API Settings](https://www.themoviedb.org/settings/api)
-2. Sign up or log in to your account
-3. Request a developer API key (free tier available)
-4. Add the key to your `.env` file as `VITE_TMDB_API_KEY`
+## 🔑 TMDB API Key Setup
+
+1. Go to [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
+2. Create or log in to your account
+3. Request a **free developer API key**
+4. Add it to your `.env` file:
+
+```env
+VITE_TMDB_API_KEY=your_key_here
+```
 
 ---
 
 ## 📸 Screenshots
 
-<img width="1898" height="869" alt="image" src="https://github.com/user-attachments/assets/28e43d53-83f5-4bac-9431-e38b611bbb4d" />
+<img width="1886" height="853" alt="image" src="https://github.com/user-attachments/assets/19109940-fc44-4b44-8b74-ee93be71edb2" />
+<img width="1918" height="811" alt="image" src="https://github.com/user-attachments/assets/c05b5aeb-74ef-4306-b831-6e9d8cb57434" />
+<img width="1890" height="869" alt="image" src="https://github.com/user-attachments/assets/8c0728e9-2189-41da-a4dc-dde13443f296" />
+<img width="1918" height="793" alt="image" src="https://github.com/user-attachments/assets/1a37a3d5-8217-45a9-8696-4607e7f9c10b" />
 
-<img width="1865" height="854" alt="image" src="https://github.com/user-attachments/assets/ba36cc32-3585-46c0-bf21-f3721a60e9f6" />
 
-<img width="1878" height="858" alt="image" src="https://github.com/user-attachments/assets/c4dace37-e7a2-4570-a01a-09600896aa73" />
 
 ---
 
-
 ## 📄 License
 
-This project is provided for educational and personal use only.  
-Feel free to fork, modify, and build upon it!
+This project is provided **for educational and personal use**.
+You are free to fork, modify, and expand it.
 
 ---
 
 ## 🙏 Credits
 
-- Built by following this YouTube tutorial by Tech With Tim: [Watch here](https://www.youtube.com/watch?v=G6D9cBaLViA) 
-- Movie data powered by [TMDB](https://www.themoviedb.org/)
-
+* Tutorial inspiration by **Tech With Tim**
+  [https://www.youtube.com/watch?v=G6D9cBaLViA](https://www.youtube.com/watch?v=G6D9cBaLViA)
+* Movie data provided by **TMDB**
+  [https://www.themoviedb.org/](https://www.themoviedb.org/)
